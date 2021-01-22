@@ -1,0 +1,46 @@
+{
+  "name": "Ingress Controller ",
+  "description": "Lab for Ingress Controller ",
+  "logo": "_images/dataset.png",
+  "has_supporting_content": true,
+  "stack_id": "Ingress_Controller_-course_1611297998425",
+  "type": "Course",
+  "Categories": [
+    "Containerization"
+  ],
+  "source_repo": "",
+  "cover": "cover.md",
+  "use_explorer_dataset": false,
+  "use_catalog_dataset": "",
+  "is_s3_type": false,
+  "meta": {
+    "Install Time": [
+      "30 minutes"
+    ],
+    "Type": [
+      "Course"
+    ],
+    "Categories": [
+      "Containerization"
+    ],
+    "Catalog Id": [
+      "Ingress_Controller_-course_1611297998425"
+    ],
+    "Contact": [
+      "edge@ibm.com"
+    ],
+    "Last updated": [
+      "Jan 21 2021"
+    ],
+    "Managed By": [
+      "Edge"
+    ]
+  },
+  "display": [
+    {
+      "name": "Developer Dashboard",
+      "url": "##DNS.host##/codeserver",
+      "enabled": true
+    }
+  ]
+}

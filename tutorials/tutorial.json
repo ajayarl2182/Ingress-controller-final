@@ -1,0 +1,28 @@
+{
+  "name": "Ingress- Controller ",
+  "appLayout": "accordion",
+  "appTheme": "g90",
+  "footer": "footer.md",
+  "tutorials": [
+    {
+      "description": "Lab for Ingress Controller",
+      "duration": "30",
+      "title": "Ingress- Controller ",
+      "tutorial_name": "Ingress--Controller-.md"
+    }
+  ],
+  "usefulLinks": [
+    {
+      "description": "",
+      "url": "",
+      "title": ""
+    }
+  ],
+  "demos": [
+    {
+      "description": "",
+      "url": "",
+      "title": ""
+    }
+  ]
+}
