@@ -155,6 +155,7 @@ spec:
 
 **Simple fanout:**
 As described previously, pods within kubernetes have ips only visible on the cluster network, so we need something at the edge accepting ingress traffic and proxying it to the right endpoints. This component is usually a highly available loadbalancer/s. An Ingress allows you to keep the number of loadbalancers down to a minimum, for example, a setup like:
+
 ![Simple fanout.png](_images/Simple fanout.png)
 
 would require an Ingress such as:
@@ -178,6 +179,7 @@ spec:
           servicePort: 80
 
 When you create the Ingress with kubectl create -f
+
 ![Fanout.png](_images/Fanout.png)
 
 Name based virtual hosting:
@@ -211,6 +213,7 @@ An Ingress controller is bootstrapped with some loadbalancing policy settings th
 
 It’s also worth noting that even though health checks are not exposed directly through the Ingress, there exist parallel concepts in Kubernetes such as readiness probes which allow you to achieve the same end result.
 
+
 ![Loadbalancer.png](_images/Loadbalancer.png)
 
 You can set a service to be of type LoadBalancer the same way you’d set NodePort— specify the type property in the service’s YAML. There needs to be some external load balancer functionality in the cluster, typically implemented by a cloud provider.
@@ -220,6 +223,7 @@ This is typically heavily dependent on the cloud provider—GKE creates a Networ
 Every time you want to expose a service to the outside world, you have to create a new LoadBalancer and get an IP address.
 Updating an Ingress:
 Say you’d like to add a new Host to an existing Ingress, you can update it by editing the resource:
+
 
 ![Updating Ingress.png](_images/Updating Ingress.png)
 
@@ -382,6 +386,7 @@ spec:
     - port: 8088
       targetPort: 80
   type: ClusterIP
+  
 Note the docker-hello-world service's type is ClusterIP, rather than LoadBalancer, because this service will be proxied by the ingress-nginx ingress controller service. The docker-hello-world service does not need public access directly to it. Instead, the public access will be routed from the load balancer to the ingress controller, and from the ingress controller to the upstream service.
 
 Deploy a sample Hello App using the below commands 
@@ -411,7 +416,7 @@ Kubectl get pods -n ingress-nginx
 Kubectl get svc -n ingress-nginx
 
 
-Sample hello-app ingress example.
+**Sample hello-app ingress example**
 
 cat << EOF | kubectl apply -f -   
 apiVersion: extensions/v1beta1
@@ -531,10 +536,10 @@ Run this command:
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.43.0/deploy/static/provider/cloud/deploy.yaml
 
 **Bare-metal**
-Using NodePort:
+**Using NodePort**
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.43.0/deploy/static/provider/baremetal/deploy.yaml
 
-Tip:
+**Tip**
 Applicable on kubernetes clusters deployed on bare-metal with generic Linux distro(Such as CentOs, Ubuntu ...).
 
 **Verify installation:**
@@ -578,10 +583,13 @@ In the first stage of preparing the cluster for upgrade, the cluster data is nor
 In the third stage, add-on components like Calico, KubeDNS, and the NGINX Ingress Controller are upgrading, as your applications rely on these components, so you can expect there will be some (minimal) outage during the add-on components upgrade portion.
 Tips to implement ahead of an update
 There are four places where outages can occur during an update.
+
 1. **Container**
 Besides the 3 upgrade stages I mentioned, you might also want to upgrade the container version, like Docker. Upgrading Docker will restart all the containers that are running on the host. This will affect your application availability and this is an outage that is hard to avoid.
+
 2. **Container network**
 Pod-to-pod communication depends on the stability of container network. Upgrading network components might affect your container network. The stability of the container network depends on your cloud cluster. Using IBM Cloud Private as an example, IBM Cloud Private uses Calico as the default Container Network Interface (CNI) plug-in, and there is no downtime in the container network during upgrade.
+
 3. **DNS**
 As the typical containerized application shows, pod internal communication depends on the cluster domain name service. To reach a zero downtime upgrade, DNS must achieve both a graceful shutdown and a rolling upgrade. Graceful shutdown ensures the processing request is finished before pods exist. For a rolling upgrade request, you need to have at least two pods in your instance and ensure that there is always a pod available during upgrade.
 If the upgrade can’t achieve graceful shutdown and rolling upgrade, the outage can last a few seconds during a DNS upgrade. During the outage, internal calls to the pod by service name might fail.
