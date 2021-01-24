@@ -13,7 +13,6 @@ An Ingress does not expose arbitrary ports or protocols. Exposing services other
 You must have an Ingress controller to satisfy an Ingress. Only creating an Ingress resource has no effect.
 You may need to deploy an Ingress controller such as ingress-nginx. You can choose from a number of Ingress controllers.
 Ideally, all Ingress controllers should fit the reference specification. In reality, the various Ingress controllers operate slightly differently.
-![Prerequisites.png](_images/Prerequisites.png)
 
 
 **What you will learn in this course**
