@@ -58,8 +58,8 @@ spec:
 IngressClass resources contain an optional parameters field. This can be used to reference additional configuration for this class.
 
 
-**Default IngressClass:
-**
+**Default IngressClass:**
+
 You can mark a particular IngressClass as default for your cluster. Setting the ingressclass.kubernetes.io/is-default-class annotation to true on an IngressClass resource will ensure that new Ingresses without an ingressClassName field specified will be assigned this default IngressClass.
 
 
@@ -214,7 +214,7 @@ An Ingress controller is bootstrapped with some loadbalancing policy settings th
 It’s also worth noting that even though health checks are not exposed directly through the Ingress, there exist parallel concepts in Kubernetes such as readiness probes which allow you to achieve the same end result.
 
 
-![Loadbalancer.png](_images/Loadbalancer.png)
+![Loadbalancer](_images/Loadbalancer.png)
 
 You can set a service to be of type LoadBalancer the same way you’d set NodePort— specify the type property in the service’s YAML. There needs to be some external load balancer functionality in the cluster, typically implemented by a cloud provider.
 
@@ -225,7 +225,7 @@ Updating an Ingress:
 Say you’d like to add a new Host to an existing Ingress, you can update it by editing the resource:
 
 
-![Updating Ingress.png](_images/Updating Ingress.png)
+![Updating Ingress](_images/Updating Ingress.png)
 
 This should pop up an editor with the existing yaml, modify it to include the new Host.
 
@@ -247,10 +247,10 @@ spec:
         path: /foo
 saving it will update the resource in the API server, which should tell the Ingress controller to reconfigure the loadbalancer.
 
-![Ingress-Output.png](_images/Ingress-Output.png)
+![Ingress-Output](_images/Ingress-Output.png)
 You can achieve the same by invoking kubectl replace -f on a modified Ingress yaml file.
 
-### **Setting Up an Ingress Controller on a Cluster**
+### Setting Up an Ingress Controller on a Cluster
 You can set up different open source ingress controllers on clusters you have created with Container Engine for Kubernetes.
 
 This topic explains how to set up an example ingress controller along with corresponding access control on an existing cluster. Having set up the ingress controller, this topic describes how to use the ingress controller with an example hello-world backend, and how to verify the ingress controller is working as expected.
@@ -341,7 +341,7 @@ Output a new key to a file. For example, by entering:
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout tls.key -out tls.crt -subj "/CN=nginxsvc/O=nginxsvc"
 To generate the secret for this example, a self-signed certificate is used. While this is okay for testing, for production, use a certificate signed by a Certificate Authority.
 
- Note
+ **Note**
 
 Under Windows, you may need to replace "/CN=nginxsvc/O=nginxsvc" with "//CN=nginxsvc\O=nginxsvc" . For example, this is necessary if you run the openssl command from a Git Bash shell.
 Create the TLS secret by entering:
