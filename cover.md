@@ -64,3 +64,5 @@ The Ingress spec has all the information needed to configure a load balancer or 
 1-How to create and manage Ingress Controller
 
 2-Setting Up an Ingress Controller on a Kubernetes Cluster
+
+3-what happens during an update
