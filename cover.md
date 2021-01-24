@@ -8,7 +8,7 @@ Ingress exposes HTTP and HTTPS routes from outside the cluster to services wi
 
 ![Ingress.png](_images/Ingress.png)
 
-An Ingress provides the following:
+**An Ingress provides the following:**
 
 1-Externally reachable URLs for applications deployed in Kubernetes clusters.
 
