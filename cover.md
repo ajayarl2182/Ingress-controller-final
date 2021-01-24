@@ -19,4 +19,4 @@ Ideally, all Ingress controllers should fit the reference specification. In real
 
 1-How to create and manage Ingress Controller
 
-2-Setting Up an Ingress Controller on a Cluster
+2-Setting Up an Ingress Controller on a Kubernetes Cluster
