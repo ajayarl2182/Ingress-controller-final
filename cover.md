@@ -8,8 +8,10 @@ Ingress exposes HTTP and HTTPS routes from outside the cluster to services wi
 
 An Ingress provides the following:
 
-1-Externally reachable URLs for applications deployed in Kubernetes clusters
-2-Name-based virtual host and URI-based routing support
+1-Externally reachable URLs for applications deployed in Kubernetes clusters.
+
+2-Name-based virtual host and URI-based routing support.
+
 3-Load balancing rules and traffic, as well as SSL termination
 
 **Ingress**
